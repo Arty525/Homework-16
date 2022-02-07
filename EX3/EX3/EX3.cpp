@@ -20,7 +20,6 @@ double calculation(double fn, double sn, char sign) {
 
 int main() {
 	string in;
-	
 	string fnumber;
 	string snumber;
 	char sign;
