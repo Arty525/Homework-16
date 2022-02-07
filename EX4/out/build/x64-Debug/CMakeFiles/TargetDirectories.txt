@@ -1,0 +1,3 @@
+D:/GitHub/Repositories/Homework-16/EX4/out/build/x64-Debug/CMakeFiles/EX4.dir
+D:/GitHub/Repositories/Homework-16/EX4/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+D:/GitHub/Repositories/Homework-16/EX4/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
