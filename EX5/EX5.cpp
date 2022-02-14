@@ -7,19 +7,19 @@ using namespace std;
 
 int main() {
 	enum sensors {
-		OUTTEMP,
-		INTEMP,
-		TIME,
-		MOTION
+		OUTTEMP = 1,
+		INTEMP = 2,
+		TIME = 4,
+		MOTION = 8
 	};
 	enum automate {
-		POWER = 1,
-		SOCKETS,
-		INLIGHT,
-		OUTLIGHT,
-		INHEATING,
-		WPHEATING,
-		CONDITIONER
+		POWER = 16,
+		SOCKETS = 32,
+		INLIGHT = 64,
+		OUTLIGHT = 128,
+		INHEATING = 256,
+		WPHEATING = 512,
+		CONDITIONER = 1024
 	};
 
 	int state = 0;
@@ -43,19 +43,19 @@ int main() {
 		cin >> sockets;
 		cin >> inLight;
 
-		values << "Time: " << time << " Outdoor temperature: " << outTemp << " Internal temperature: " << inTemp << " Motion: " << motion << " Power: " << power << " Sockets: " << sockets << " Internal light: " << inLight;
+		values << "Outdoor temperature: " << outTemp << " Internal temperature: " << inTemp << " Motion: " << motion << " Power: " << power << " Sockets: " << sockets << " Internal light: " << inLight;
 
 		cout << values.str() << endl;
 
 		cout << "==================================================" << endl;
 
-		motion == "yes" ? state |= MOTION : state |= ~MOTION;
+		motion == "yes" ? state |= MOTION : state &= ~MOTION;
 
-		power == "on" ? state |= POWER : state |= ~POWER;
+		power == "on" ? state |= POWER : state &= ~POWER;
 		
-		sockets == "on" ? state |= SOCKETS : state |= ~SOCKETS;
+		sockets == "on" ? state |= SOCKETS : state &= ~SOCKETS;
 		
-		inLight == "on" ? state |= INLIGHT : state |= ~INLIGHT;
+		inLight == "on" ? state |= INLIGHT : state &= ~INLIGHT;
 
 		if (state & POWER) {
 			if (state & INLIGHT) {
