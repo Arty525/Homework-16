@@ -27,7 +27,7 @@ int main() {
 	int time = 0;
 
 	stringstream values;
-	string motion, power, sockets, inLight;
+	string motion, power, sockets, inLight, input;
 
 	float outTemp, inTemp;
 
@@ -36,16 +36,15 @@ int main() {
 	do {
 		cout << "Time: " << time << ".00, " << "Enter values(outdoor temperature, internal temperature, motion, power, sockets, internal light)" << endl;
 		
-		cin >> outTemp;
-		cin >> inTemp;
-		cin >> motion;
-		cin >> power;
-		cin >> sockets;
-		cin >> inLight;
+		getline(cin, input);
 
-		values << "Outdoor temperature: " << outTemp << " Internal temperature: " << inTemp << " Motion: " << motion << " Power: " << power << " Sockets: " << sockets << " Internal light: " << inLight;
+		stringstream values(input);
 
-		cout << values.str() << endl;
+		values >> outTemp >> inTemp >> motion >> power >> sockets >> inLight;
+
+		cout << "Outdoor temperature: " << outTemp << " Internal temperature: " << inTemp << " Motion: " << motion << " Power: " << power << " Sockets: " << sockets << " Internal light: " << inLight << endl;
+
+		//cout << values.str() << endl;
 
 		cout << "==================================================" << endl;
 
